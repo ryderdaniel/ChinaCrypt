@@ -10,7 +10,7 @@ def encode(m):
 	if len(m) == 0:
 		return ""
 
-	from Crypto.Util.number import bytes_to_long, long_to_bytes
+	from Crypto.Util.number import bytes_to_long
 	reference = dict()
 
 	for l1 in range(32,127):
@@ -42,15 +42,8 @@ def decode(c):
 	"""
 	if len(c) == 0:
 		return ""
-	from Crypto.Util.number import bytes_to_long, long_to_bytes
-	reference = dict()
-	for l1 in range(32,127):
-		for l2 in range(32,127):
-			reference[chr(bytes_to_long((chr(l1)+chr(l2)).encode()))] = (chr(l1)+chr(l2)).encode()
-	for l1 in range(32,127):
-		reference[chr(bytes_to_long((chr(l1)).encode() + b'\x00'))] = (chr(l1)).encode() + b'\x00'
-	
+	from Crypto.Util.number import long_to_bytes
 	output = b''
 	for l in c:
-		output += reference[l]
+		output += long_to_bytes(ord(l))
 	return output
