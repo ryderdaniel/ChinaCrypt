@@ -4,8 +4,8 @@ ChinaCrypt is a toy encoding scheme where one can encode ascii strings in the fo
 
 ## Functions
 
-`encode`: Converts a bytestring into "chinese" characters.
-`decode`: Converts a string of "chinese" characters into a bytestring.
+* `encode`: Converts a bytestring into "chinese" characters.
+* `decode`: Converts a string of "chinese" characters into a bytestring.
 
 ## Usage:
 ```
