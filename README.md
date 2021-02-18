@@ -19,4 +19,4 @@ b'Hello!'
 
 * Encoding doesn't work so well with lots of spaces (low ascii value). As an alternative, you could use underscores (_) which may yield much better results (looks more chinese).
 * There are occasional bad characters that may not render properly.
-
+* Requires `PyCryptodome` which can be found [here](https://pycryptodome.readthedocs.io/en/latest/src/installation.html).
