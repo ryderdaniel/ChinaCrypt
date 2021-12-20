@@ -11,21 +11,14 @@ def encode(m):
 		return ""
 
 	from Crypto.Util.number import bytes_to_long
-	reference = dict()
-
-	for l1 in range(32,127):
-		for l2 in range(32,127):
-			reference[(chr(l1)+chr(l2)).encode()] = chr(bytes_to_long((chr(l1)+chr(l2)).encode()))
-	for l1 in range(32,127):
-		reference[(chr(l1)).encode() + b'\x00'] = chr(bytes_to_long((chr(l1)).encode() + b'\x00'))
-
+	
 	m_split = [m[i:i+2] for i in range(0,len(m),2)]
 	if len(m_split[-1]) == 1:
 		m_split[-1] += b'\x00'
 	
 	output = ""
 	for c in m_split:
-		output += reference[c]
+		output += chr(bytes_to_long(c))
 	
 	return output
 
